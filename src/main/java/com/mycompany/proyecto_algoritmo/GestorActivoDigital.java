@@ -1,7 +1,10 @@
 package com.mycompany.proyecto_algoritmo;
 import java.util.*;
 
-private List<ActivoDigital> activos;
+
+public class GestorActivoDigital {
+
+    private List<ActivoDigital> activos;
 
     // Constructor: al crear el gestor, se inicializan automáticamente los libros
     public GestorActivoDigital() {
@@ -15,10 +18,7 @@ private List<ActivoDigital> activos;
         activos.add(new Libro(280, "978-0-14-044913-6", "L006", "La Odisea", "Homero", "Antigüedad"));
     }
 
+    public void mostrarListado() {
 
-public class GestorActivoDigital {
-    
-    public void mostrarListado(){
-        
     }
 }
