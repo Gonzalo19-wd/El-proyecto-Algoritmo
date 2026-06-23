@@ -15,7 +15,6 @@ public class GestorActivoDigital {
         activos.add(new Libro(310, "978-84-376-0494-7", "L005", "La ciudad y los perros", "Mario Vargas Llosa", "1963"));
         activos.add(new Libro(280, "978-0-14-044913-6", "L006", "La Odisea", "Homero", "Antigüedad"));
     }
-    public void mostrarListado(){
-        
+    public void mostrarListado() {
     }
 }
