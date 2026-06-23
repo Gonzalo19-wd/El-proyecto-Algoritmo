@@ -1,6 +1,5 @@
 package com.mycompany.proyecto_algoritmo;
 
-import javax.print.DocFlavor;
 
 abstract class ActivoDigital {
     protected String idActivo;
@@ -15,6 +14,6 @@ abstract class ActivoDigital {
         this.fecha = fecha;
     }
     
-    abstract void mostrarDetalle();
+    abstract String mostrarDetalle();
     
 }

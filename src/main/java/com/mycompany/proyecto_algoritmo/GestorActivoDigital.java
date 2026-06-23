@@ -1,24 +1,51 @@
 package com.mycompany.proyecto_algoritmo;
-import java.util.*;
+
+import com.mycompany.proyecto_algoritmo.EstructuraDatos.Lista;
 
 
 public class GestorActivoDigital {
+    
+    private Lista<Libro> libros;
+    private Lista<Articulo> articulos;
+    private Lista<Revista> revistas;
 
-    private List<ActivoDigital> activos;
-
-    // Constructor: al crear el gestor, se inicializan automáticamente los libros
     public GestorActivoDigital() {
-        activos = new ArrayList<>();
+        libros = new Lista<>();
+        articulos = new Lista<>();
+        revistas = new Lista<>();
 
-        activos.add(new Libro(300, "978-3-16-148410-0", "L001", "El Quijote", "Miguel de Cervantes", "1605"));
-        activos.add(new Libro(417, "978-1-4028-9462-6", "L002", "Cien años de soledad", "Gabriel García Márquez", "1967"));
-        activos.add(new Libro(223, "978-0-7432-7356-5", "L003", "El Principito", "Antoine de Saint-Exupéry", "1943"));
-        activos.add(new Libro(500, "978-0-452-28423-4", "L004", "1984", "George Orwell", "1949"));
-        activos.add(new Libro(310, "978-84-376-0494-7", "L005", "La ciudad y los perros", "Mario Vargas Llosa", "1963"));
-        activos.add(new Libro(280, "978-0-14-044913-6", "L006", "La Odisea", "Homero", "Antigüedad"));
+        cargarDatosPredeterminados();
     }
 
-    public void mostrarListado() {
+    private void cargarDatosPredeterminados() {
 
+        // Libros
+        libros.insertarCola(new Libro("L001", "978-84-376-0494-7", "Cien años de soledad", "Gabriel García Márquez", "1967", 496));
+        libros.insertarCola(new Libro("L002", "978-84-204-7431-0", "Don Quijote de la Mancha", "Miguel de Cervantes", "1605", 863));
+
+        // Artículos
+        articulos.insertarCola(new Articulo("A001", "Inteligencia Artificial en la Educación", "Juan Pérez", "2024", 12));
+        articulos.insertarCola(new Articulo("A002","Bases de Datos Distribuidas", "María López", "2023", 8));
+
+        // Revistas
+        revistas.insertarCola(new Revista("R001", "National Geographic", "Varios autores", "2025", "National Geographic Society", 320));
+        revistas.insertarCola(new Revista("R002", "IEEE Spectrum", "IEEE", "2025", "IEEE", 45));
     }
+    //GETTER 
+
+    public Lista<Libro> getLibros() {
+        return libros;
+    }
+
+    public Lista<Articulo> getArticulos() {
+        return articulos;
+    }
+
+    public Lista<Revista> getRevistas() {
+        return revistas;
+    }
+    
+    
+
+    
 }
