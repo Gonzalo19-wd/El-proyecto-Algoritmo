@@ -91,6 +91,10 @@ public class Administrador {
             }
         }
     }
+    
+    public void CrearActivo(ActivoDigital tipo){
+        
+    }
 
     public ActivoDigital buscarActivo(String id) {
 
@@ -123,4 +127,5 @@ public class Administrador {
 
         return null;
     }
+    
 }

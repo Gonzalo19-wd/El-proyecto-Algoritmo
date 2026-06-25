@@ -1,13 +1,14 @@
 package com.mycompany.proyecto_algoritmo;
 
 import com.mycompany.proyecto_algoritmo.EstructuraDatos.Lista;
-
+import com.mycompany.proyecto_algoritmo.EstructuraDatos.Pila;
 
 public class GestorActivoDigital {
     
     private Lista<Libro> libros;
     private Lista<Articulo> articulos;
     private Lista<Revista> revistas;
+    private Pila<ActivoDigital> pila;
 
     public GestorActivoDigital() {
         libros = new Lista<>();
@@ -22,19 +23,46 @@ public class GestorActivoDigital {
         // Libros
         libros.insertarCola(new Libro("L001", "978-84-376-0494-7", "Cien años de soledad", "Gabriel García Márquez", "1967", 496));
         libros.insertarCola(new Libro("L002", "978-84-204-7431-0", "Don Quijote de la Mancha", "Miguel de Cervantes", "1605", 863));
+        libros.insertarCola(new Libro("L003", "978-0-14-044926-6", "La Odisea", "Homero", "Antigüedad", 560));
+        libros.insertarCola(new Libro("L004", "978-84-376-0494-8", "La ciudad y los perros", "Mario Vargas Llosa", "1963", 350));
+        libros.insertarCola(new Libro("L005", "978-0-452-28423-5", "1984", "George Orwell", "1949", 328));
+        libros.insertarCola(new Libro("L006", "978-84-376-0494-9", "El Principito", "Antoine de Saint-Exupéry", "1943", 96));
+        libros.insertarCola(new Libro("L007", "978-84-376-0495-0", "Rayuela", "Julio Cortázar", "1963", 600));
 
         // Artículos
         articulos.insertarCola(new Articulo("A001", "Inteligencia Artificial en la Educación", "Juan Pérez", "2024", 12));
         articulos.insertarCola(new Articulo("A002","Bases de Datos Distribuidas", "María López", "2023", 8));
+        articulos.insertarCola(new Articulo("A003", "Redes Neuronales Convolucionales", "Carlos Gómez", "2022", 15));
+        articulos.insertarCola(new Articulo("A004", "Blockchain en Finanzas", "Ana Torres", "2021", 10));
+        articulos.insertarCola(new Articulo("A005", "Computación Cuántica y Criptografía", "Luis Fernández", "2024", 18));
+        articulos.insertarCola(new Articulo("A006", "Big Data en Salud", "Sofía Ramírez", "2023", 12));
+        articulos.insertarCola(new Articulo("A007", "Robótica Autónoma", "Pedro Sánchez", "2025", 20));
 
         // Revistas
         revistas.insertarCola(new Revista("R001", "National Geographic", "Varios autores", "2025", "National Geographic Society", 320));
         revistas.insertarCola(new Revista("R002", "IEEE Spectrum", "IEEE", "2025", "IEEE", 45));
+        revistas.insertarCola(new Revista("R003", "Scientific American", "Varios autores", "2024", "Springer Nature", 120));
+        revistas.insertarCola(new Revista("R004", "Nature", "Nature Publishing Group", "2025", "Nature", 200));
+        revistas.insertarCola(new Revista("R005", "Science", "AAAS", "2025", "AAAS", 150));
+        revistas.insertarCola(new Revista("R006", "MIT Technology Review", "MIT", "2024", "MIT Press", 90));
+        revistas.insertarCola(new Revista("R007", "Harvard Business Review", "Harvard University", "2023", "Harvard Business School", 75));
     }
     //GETTER 
 
     public Lista<Libro> getLibros() {
         return libros;
+    }
+    public void InsertarLibro(Libro nuevo){
+        libros.insertarCola(nuevo);
+        pila.ingresar(nuevo);
+    }
+    public void InsertarArticulo(Articulo nuevo){
+        articulos.insertarCola(nuevo);
+        pila.ingresar(nuevo);
+    }
+    public void InsertarRevista(Revista nuevo){
+        revistas.insertarCola(nuevo);
+        pila.ingresar(nuevo);
     }
 
     public Lista<Articulo> getArticulos() {

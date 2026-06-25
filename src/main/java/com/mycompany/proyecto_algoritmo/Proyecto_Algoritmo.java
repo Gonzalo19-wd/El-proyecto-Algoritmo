@@ -60,6 +60,72 @@ public class Proyecto_Algoritmo {
                         System.out.println("Activo no encontrado");
                     }
                     break;
+                case 3:
+                    System.out.println("Indique material a Ingresar:"
+                            + "\n1) Libro"
+                            + "\n2) Articulo"
+                            + "\n3) Revista"
+                            + "\n0) Cancelar");
+                    int acti = consola.nextInt();
+                    switch (acti) {
+                        case 1:
+                            System.out.println("Ingrese ID:");
+                            String idLi = consola.next();
+                            System.out.println("Ingrese título:");
+                            String tituloLib = consola.next();
+                            System.out.println("Ingrese autor:");
+                            String autorLib = consola.next();
+                            System.out.println("Ingrese fecha:");
+                            String fechaLib = consola.next();
+                            System.out.println("Ingrese ISBN:");
+                            String barras = consola.next();
+                            System.out.println("Ingrese páginas:");
+                            int pagsLib = consola.nextInt();
+                            
+                            Libro inser = new Libro(idLi, barras, tituloLib, autorLib, fechaLib, pagsLib);
+                            gestor.InsertarLibro(inser);
+                            break;
+                        case 2:
+                            System.out.println("Ingrese ID:");
+                            String idArt = consola.next();
+                            System.out.println("Ingrese título:");
+                            String tituloArt = consola.next();
+                            System.out.println("Ingrese autor:");
+                            String autorArt = consola.next();
+                            System.out.println("Ingrese fecha:");
+                            String fechaArt = consola.next();
+                            System.out.println("Ingrese N° Vol:");
+                            int vol = consola.nextInt();
+                            
+                            Articulo artinsr = new Articulo(idArt, tituloArt, autorArt, fechaArt, vol);
+                            gestor.InsertarArticulo(artinsr);
+                            break;
+                        case 3:
+                            System.out.println("Ingrese ID:");
+                            String idre = consola.next();
+                            System.out.println("Ingrese título:");
+                            String tituloRev = consola.next();
+                            System.out.println("Ingrese autor:");
+                            String autorRev = consola.next();
+                            System.out.println("Ingrese fecha:");
+                            String fechaRev = consola.next();
+                            System.out.println("Ingrese editorial:");
+                            String editorial = consola.next();
+                            System.out.println("Ingrese páginas:");
+                            int pagsRev = consola.nextInt();
+                            
+                            Revista revins = new Revista(idre, tituloRev, autorRev, fechaRev, editorial, pagsRev);
+                            gestor.InsertarRevista(revins);
+                            break;
+                        case 0:
+                            break;
+                        default:
+                            throw new AssertionError();
+                    }
+                case 4:
+                    System.out.println("Mostrando catatogo");
+                case 5:
+                    
                 default:
                     throw new AssertionError();
             }
