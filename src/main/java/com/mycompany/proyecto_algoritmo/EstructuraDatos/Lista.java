@@ -82,7 +82,6 @@ public class Lista<T> {
         return tamanio;
     }
     
-
     public void mostrar() {
         Nodo<T> actual = cabeza;
 
