@@ -1,6 +1,7 @@
 package com.mycompany.proyecto_algoritmo;
 
 import java.util.Scanner;
+import com.mycompany.proyecto_algoritmo.EstructuraDatos.*;
 
 public class Proyecto_Algoritmo {
 
@@ -16,7 +17,7 @@ public class Proyecto_Algoritmo {
                 + "2. Realizar Prestamo (arreglo)\n"
                 + "3. Ingresar nuevo activo (Lista Enlazada)\n"
                 + "4. Ver catalogo (cola circular)\n"
-                + "5. Registor de Prestamos (Pila)\n"
+                + "5. Registor de Ultimo Registro (Pila)\n"
                 + "0. FIN\n"
                 + "-----------------------------------------------------\n"
                 + "Ingrese la opcion [1 - 4] =>");
@@ -123,7 +124,23 @@ public class Proyecto_Algoritmo {
                             throw new AssertionError();
                     }
                 case 4:
-                    System.out.println("Mostrando catatogo");
+                    GestorActivoDigital gestorCirc = new GestorActivoDigital();
+                    ListaCirc<ActivoDigital> catalogo = gestor.transformarEnListaCircular();
+
+                    boolean continuar = true;
+
+                    while (continuar) {
+                        ActivoDigital actual = catalogo.siguiente();
+                        System.out.println("Material actual: " + actual);
+
+                        System.out.println("1) Siguiente material");
+                        System.out.println("2) Salir");
+                        int seguir = consola.nextInt();
+
+                        if (seguir == 2) {
+                            continuar = false;
+                        }
+                    }
                 case 5:
                     
                 default:

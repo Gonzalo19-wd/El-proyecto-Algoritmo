@@ -1,7 +1,6 @@
 package com.mycompany.proyecto_algoritmo;
 
-import com.mycompany.proyecto_algoritmo.EstructuraDatos.Lista;
-import com.mycompany.proyecto_algoritmo.EstructuraDatos.Pila;
+import com.mycompany.proyecto_algoritmo.EstructuraDatos.*;
 
 public class GestorActivoDigital {
     
@@ -9,12 +8,13 @@ public class GestorActivoDigital {
     private Lista<Articulo> articulos;
     private Lista<Revista> revistas;
     private Pila<ActivoDigital> pila;
+    private ListaCirc<ActivoDigital> ListCirc;
 
     public GestorActivoDigital() {
         libros = new Lista<>();
         articulos = new Lista<>();
         revistas = new Lista<>();
-
+        pila = new Pila<>();
         cargarDatosPredeterminados();
     }
 
@@ -53,16 +53,61 @@ public class GestorActivoDigital {
         return libros;
     }
     public void InsertarLibro(Libro nuevo){
-        libros.insertarCola(nuevo);
+        libros.insertarCabeza(nuevo);
         pila.ingresar(nuevo);
     }
     public void InsertarArticulo(Articulo nuevo){
-        articulos.insertarCola(nuevo);
+        articulos.insertarCabeza(nuevo);
         pila.ingresar(nuevo);
     }
     public void InsertarRevista(Revista nuevo){
-        revistas.insertarCola(nuevo);
+        revistas.insertarCabeza(nuevo);
         pila.ingresar(nuevo);
+    }
+    public ListaCirc<ActivoDigital> transformarEnListaCircular() {
+        ListaCirc<ActivoDigital> listaCirc = new ListaCirc<>();
+
+        // Agregar libros
+        for (int i = 0; i < libros.tamanio(); i++) {
+            listaCirc.insertar(libros.get(i));
+        }
+
+        // Agregar artículos
+        for (int i = 0; i < articulos.tamanio(); i++) {
+            listaCirc.insertar(articulos.get(i));
+        }
+
+        // Agregar revistas
+        for (int i = 0; i < revistas.tamanio(); i++) {
+            listaCirc.insertar(revistas.get(i));
+        }
+
+        return listaCirc;
+    }
+    
+    public void verUltimoActivo() {
+        ActivoDigital ultimo = pila.ultimo();
+        if (ultimo != null) {
+            System.out.println("Último activo ingresado: " + ultimo);
+        } else {
+            System.out.println("La pila está vacía.");
+        }
+    }
+
+    public void eliminarUltimoActivo() {
+        ActivoDigital ultimo = pila.quitar();
+        if (ultimo != null) {
+            if (ultimo instanceof Libro) {
+                libros.eliminarCabeza();
+            } else if (ultimo instanceof Articulo) {
+                articulos.eliminarCabeza();
+            } else if (ultimo instanceof Revista) {
+                revistas.eliminarCabeza();
+            }
+            System.out.println("Se eliminó el último activo: " + ultimo);
+        } else {
+            System.out.println("No hay activos para eliminar.");
+        }
     }
 
     public Lista<Articulo> getArticulos() {

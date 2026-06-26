@@ -9,7 +9,7 @@ public class Pila<T> {
         tope = nuevo;
     }
 
-    // Desapilar (pop)
+    // deveulve el ultimo (pop)
     public T quitar() {
         if (tope == null) {
             System.out.println("La pila está vacía");

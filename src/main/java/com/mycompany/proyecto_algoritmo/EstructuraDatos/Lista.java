@@ -3,6 +3,7 @@ package com.mycompany.proyecto_algoritmo.EstructuraDatos;
 public class Lista<T> {
 
     private Nodo<T> cabeza;
+    private Nodo<T> actuaL;
     private Nodo<T> cola;
     private int tamanio;
 
@@ -47,7 +48,6 @@ public class Lista<T> {
     }
 
     public void eliminarCabeza() { // Eliminacion del nodo principal
-
         if (cabeza == null) { // Comprueba que la lista no esté vacía para evitar NullPointerException
             return;
         }
