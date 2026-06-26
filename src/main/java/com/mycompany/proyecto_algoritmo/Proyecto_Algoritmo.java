@@ -124,7 +124,6 @@ public class Proyecto_Algoritmo {
                             throw new AssertionError();
                     }
                 case 4:
-                    GestorActivoDigital gestorCirc = new GestorActivoDigital();
                     ListaCirc<ActivoDigital> catalogo = gestor.transformarEnListaCircular();
 
                     boolean continuar = true;
@@ -142,7 +141,22 @@ public class Proyecto_Algoritmo {
                         }
                     }
                 case 5:
-                    
+                    System.out.println("----- Último activo digital -----");
+                    System.out.println("1) Ver último activo");
+                    System.out.println("2) Eliminar último activo");
+                    int opcionPila = consola.nextInt();
+
+                    switch (opcionPila) {
+                        case 1:
+                            gestor.verUltimoActivo(); // muestra el ultimo activo
+                            break;
+                        case 2:
+                            gestor.eliminarUltimoActivo(); // elimina el ultimo activo
+                            break;
+                        default:
+                            System.out.println("Opción inválida");
+                    }
+                    break;
                 default:
                     throw new AssertionError();
             }
