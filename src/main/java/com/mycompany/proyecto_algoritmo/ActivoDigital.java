@@ -1,7 +1,7 @@
 package com.mycompany.proyecto_algoritmo;
 
 
-abstract class ActivoDigital {
+abstract class ActivoDigital{
     protected String idActivo;
     protected String titulo;
     protected String autor;

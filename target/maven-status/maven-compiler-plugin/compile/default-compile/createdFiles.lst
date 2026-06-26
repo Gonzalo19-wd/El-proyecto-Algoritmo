@@ -11,5 +11,7 @@ com\mycompany\proyecto_algoritmo\Administrador.class
 com\mycompany\proyecto_algoritmo\GestorActivoDigital.class
 com\mycompany\proyecto_algoritmo\Libro.class
 com\mycompany\proyecto_algoritmo\EstructuraDatos\ListaCirc.class
+com\mycompany\proyecto_algoritmo\EstructuraDatos\NodoA.class
 com\mycompany\proyecto_algoritmo\Prestamo.class
+com\mycompany\proyecto_algoritmo\EstructuraDatos\ArbolBinarioBusqueda.class
 com\mycompany\proyecto_algoritmo\Proyecto_Algoritmo.class
