@@ -17,10 +17,11 @@ public class Proyecto_Algoritmo {
                 + "2. Realizar Prestamo (arreglo)\n"
                 + "3. Ingresar nuevo activo (Lista Enlazada)\n"
                 + "4. Ver catalogo (cola circular)\n"
-                + "5. Registor de Ultimo Registro (Pila)\n"
+                + "5. Registro de Ultimo Registro (Pila)\n"
+                + "6. Buscar usuario\n"
                 + "0. FIN\n"
                 + "-----------------------------------------------------\n"
-                + "Ingrese la opcion [1 - 4] =>");
+                + "Ingrese la opcion [1 - 6] =>");
         opc = consola.nextInt();
         return opc;
     }
@@ -41,20 +42,20 @@ public class Proyecto_Algoritmo {
                     String apellido = consola.next();
                     System.out.println("Ingrese DNI:");
                     String dni = consola.next();
-                    
+
                     usuarioActual = new Usuario(codigo, nombre, apellido, dni);
-                    
+                    admin.registrarUsuario(usuarioActual);
                     System.out.println("Usuario registrado correctamente");
-                    
+
                     break;
                 case 2:
                     admin.mostrarActivosDigitales();
-                    
+
                     System.out.println("Ingrese codigo del activo:");
                     String id = consola.next();
-                    
+
                     ActivoDigital activo = admin.buscarActivo(id);
-                    
+
                     if (activo != null) {
                         admin.realizarPrestamo(usuarioActual.codigoUser, activo);
                     } else {
@@ -82,7 +83,7 @@ public class Proyecto_Algoritmo {
                             String barras = consola.next();
                             System.out.println("Ingrese páginas:");
                             int pagsLib = consola.nextInt();
-                            
+
                             Libro inser = new Libro(idLi, barras, tituloLib, autorLib, fechaLib, pagsLib);
                             gestor.InsertarLibro(inser);
                             break;
@@ -97,7 +98,7 @@ public class Proyecto_Algoritmo {
                             String fechaArt = consola.next();
                             System.out.println("Ingrese N° Vol:");
                             int vol = consola.nextInt();
-                            
+
                             Articulo artinsr = new Articulo(idArt, tituloArt, autorArt, fechaArt, vol);
                             gestor.InsertarArticulo(artinsr);
                             break;
@@ -114,7 +115,7 @@ public class Proyecto_Algoritmo {
                             String editorial = consola.next();
                             System.out.println("Ingrese páginas:");
                             int pagsRev = consola.nextInt();
-                            
+
                             Revista revins = new Revista(idre, tituloRev, autorRev, fechaRev, editorial, pagsRev);
                             gestor.InsertarRevista(revins);
                             break;
@@ -130,7 +131,7 @@ public class Proyecto_Algoritmo {
 
                     while (continuar) {
                         ActivoDigital actual = catalogo.siguiente();
-                        System.out.println("Material actual: " + actual);
+                        System.out.println("Material actual: " + actual.mostrarDetalle());
 
                         System.out.println("1) Siguiente material");
                         System.out.println("2) Salir");
@@ -140,6 +141,7 @@ public class Proyecto_Algoritmo {
                             continuar = false;
                         }
                     }
+                    break;
                 case 5:
                     System.out.println("----- Último activo digital -----");
                     System.out.println("1) Ver último activo");
@@ -159,6 +161,20 @@ public class Proyecto_Algoritmo {
                     break;
                 default:
                     throw new AssertionError();
+                case 6:
+                    System.out.println("Ingrese codigo del usuario:");
+                    String buscar = consola.next();
+
+                    if (admin.buscarUsuario(buscar)) {
+                        System.out.println("Usuario encontrado");
+                    } else {
+                        System.out.println("Usuario no existe");
+                    }
+
+                    break;
+                case 0:
+                    System.out.println("Saliendo....");
+
             }
             consola.nextLine();
         } while (opcion != 0);

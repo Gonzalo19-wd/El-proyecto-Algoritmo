@@ -1,6 +1,7 @@
 package com.mycompany.proyecto_algoritmo;
 
 import java.util.Scanner;
+import com.mycompany.proyecto_algoritmo.EstructuraDatos.*;
 
 public class Administrador {
 
@@ -9,10 +10,12 @@ public class Administrador {
     private int cantidadLibros; //SOLO PUEDE REALIZAR 3 PRESTAMOS
     private int cantidadRevistas; //SOLO PUEDE REALIZAR 2 PRESTAMOS
     private GestorActivoDigital gestor;
+    private ArbolBinarioBusqueda<Usuario> usuarios;
 
     public Administrador(GestorActivoDigital gestor) {
         this.prestamos = new Prestamo[5];
         this.gestor = gestor;
+        this.usuarios = new ArbolBinarioBusqueda<>();
     }
 
     public void mostrarActivosDigitales() {
@@ -21,7 +24,7 @@ public class Administrador {
             Libro libro = gestor.getLibros().get(i);
 
             if (libro.isDisponible()) {
-                System.out.println("Codigo:" + libro.idActivo); 
+                System.out.println("Codigo:" + libro.idActivo);
                 System.out.println(libro.mostrarDetalle());
                 System.out.println();
             }
@@ -91,9 +94,9 @@ public class Administrador {
             }
         }
     }
-    
-    public void CrearActivo(ActivoDigital tipo){
-        
+
+    public void CrearActivo(ActivoDigital tipo) {
+
     }
 
     public ActivoDigital buscarActivo(String id) {
@@ -127,5 +130,17 @@ public class Administrador {
 
         return null;
     }
-    
+
+    public void registrarUsuario(Usuario usuario) {
+        usuarios.insertar(usuario);
+    }
+
+    public boolean buscarUsuario(String codigo) {
+
+        Usuario usuario = new Usuario(codigo, "", "", "");
+
+        return usuarios.buscar(usuario);
+
+    }
+
 }

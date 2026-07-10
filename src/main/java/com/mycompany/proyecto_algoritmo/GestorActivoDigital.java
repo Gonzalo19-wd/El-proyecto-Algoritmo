@@ -3,7 +3,7 @@ package com.mycompany.proyecto_algoritmo;
 import com.mycompany.proyecto_algoritmo.EstructuraDatos.*;
 
 public class GestorActivoDigital {
-    
+
     private Lista<Libro> libros;
     private Lista<Articulo> articulos;
     private Lista<Revista> revistas;
@@ -15,6 +15,7 @@ public class GestorActivoDigital {
         articulos = new Lista<>();
         revistas = new Lista<>();
         pila = new Pila<>();
+
         cargarDatosPredeterminados();
     }
 
@@ -31,7 +32,7 @@ public class GestorActivoDigital {
 
         // Artículos
         articulos.insertarCola(new Articulo("A001", "Inteligencia Artificial en la Educación", "Juan Pérez", "2024", 12));
-        articulos.insertarCola(new Articulo("A002","Bases de Datos Distribuidas", "María López", "2023", 8));
+        articulos.insertarCola(new Articulo("A002", "Bases de Datos Distribuidas", "María López", "2023", 8));
         articulos.insertarCola(new Articulo("A003", "Redes Neuronales Convolucionales", "Carlos Gómez", "2022", 15));
         articulos.insertarCola(new Articulo("A004", "Blockchain en Finanzas", "Ana Torres", "2021", 10));
         articulos.insertarCola(new Articulo("A005", "Computación Cuántica y Criptografía", "Luis Fernández", "2024", 18));
@@ -52,18 +53,22 @@ public class GestorActivoDigital {
     public Lista<Libro> getLibros() {
         return libros;
     }
-    public void InsertarLibro(Libro nuevo){
+
+    public void InsertarLibro(Libro nuevo) {
         libros.insertarCabeza(nuevo);
         pila.ingresar(nuevo);
     }
-    public void InsertarArticulo(Articulo nuevo){
+
+    public void InsertarArticulo(Articulo nuevo) {
         articulos.insertarCabeza(nuevo);
         pila.ingresar(nuevo);
     }
-    public void InsertarRevista(Revista nuevo){
+
+    public void InsertarRevista(Revista nuevo) {
         revistas.insertarCabeza(nuevo);
         pila.ingresar(nuevo);
     }
+
     public ListaCirc<ActivoDigital> transformarEnListaCircular() {
         ListaCirc<ActivoDigital> listaCirc = new ListaCirc<>();
 
@@ -84,11 +89,12 @@ public class GestorActivoDigital {
 
         return listaCirc;
     }
-    
+
     public void verUltimoActivo() {
         ActivoDigital ultimo = pila.ultimo();
+
         if (ultimo != null) {
-            System.out.println("Último activo ingresado: " + ultimo);
+            System.out.println("Último activo ingresado: " + ultimo.mostrarDetalle());
         } else {
             System.out.println("La pila está vacía.");
         }
@@ -117,8 +123,5 @@ public class GestorActivoDigital {
     public Lista<Revista> getRevistas() {
         return revistas;
     }
-    
-    
 
-    
 }
